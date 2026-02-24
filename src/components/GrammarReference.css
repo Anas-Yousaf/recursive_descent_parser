@@ -1,0 +1,84 @@
+/* ============================================================
+   GRAMMAR REFERENCE COMPONENT STYLES
+   ============================================================ */
+
+.grammar-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    animation: fadeInUp 0.5s ease 0.05s both;
+    box-shadow: var(--shadow-md);
+}
+
+.grammar-rules {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.grammar-rule {
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid transparent;
+    transition: all var(--transition-normal);
+}
+
+.grammar-rule:hover {
+    background: rgba(99, 102, 241, 0.05);
+    border-color: var(--border-subtle);
+}
+
+.grammar-rule.active {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: var(--accent-indigo);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
+}
+
+.rule-production {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.rule-lhs {
+    color: var(--accent-violet);
+    font-weight: 700;
+    min-width: 24px;
+}
+
+.rule-arrow {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.rule-rhs {
+    color: var(--text-primary);
+}
+
+.rule-desc {
+    font-size: 0.73rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    padding-left: 34px;
+    font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .grammar-container {
+        padding: 16px;
+    }
+
+    .rule-production {
+        font-size: 0.82rem;
+    }
+
+    .rule-desc {
+        display: none;
+    }
+}

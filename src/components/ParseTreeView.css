@@ -1,0 +1,184 @@
+/* ============================================================
+   PARSE TREE VIEW COMPONENT STYLES
+   ============================================================ */
+
+.parse-tree-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    animation: fadeInUp 0.5s ease 0.3s both;
+    box-shadow: var(--shadow-md);
+}
+
+.parse-tree-empty {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 60px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    animation: fadeInUp 0.5s ease 0.3s both;
+    box-shadow: var(--shadow-md);
+}
+
+.empty-tree-icon {
+    font-size: 3rem;
+    animation: float 3s ease-in-out infinite;
+    opacity: 0.5;
+}
+
+.parse-tree-empty p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ── Legend ── */
+.tree-legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-dot.non-terminal {
+    background: var(--gradient-primary);
+}
+
+.legend-dot.terminal {
+    background: var(--gradient-success);
+}
+
+.legend-dot.operator {
+    background: var(--gradient-warm);
+}
+
+.legend-dot.epsilon {
+    background: #6b7280;
+}
+
+/* ── SVG Tree ── */
+.tree-svg-wrapper {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 550px;
+    border-radius: var(--radius-md);
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-subtle);
+}
+
+.tree-svg {
+    min-width: 100%;
+    min-height: 350px;
+    display: block;
+}
+
+/* ── Edges ── */
+.tree-edge {
+    fill: none;
+    stroke: rgba(99, 102, 241, 0.25);
+    stroke-width: 2;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.tree-edge.visible {
+    animation: fadeIn 0.5s ease both;
+}
+
+/* ── Nodes ── */
+.tree-node {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.tree-node.visible {
+    animation: scaleIn 0.4s ease both;
+}
+
+.tree-node:hover .node-circle {
+    filter: url(#glow);
+    transform-origin: center;
+}
+
+.node-circle {
+    transition: all var(--transition-fast);
+    stroke: rgba(255, 255, 255, 0.15);
+    stroke-width: 1.5;
+}
+
+.tree-node:hover .node-circle {
+    stroke: rgba(255, 255, 255, 0.4);
+    stroke-width: 2;
+}
+
+.node-label {
+    fill: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    pointer-events: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Non-terminal specific ── */
+.tree-node.non-terminal .node-circle {
+    stroke: rgba(99, 102, 241, 0.3);
+}
+
+/* ── Terminal specific ── */
+.tree-node.terminal .node-circle {
+    stroke: rgba(16, 185, 129, 0.3);
+}
+
+/* ── Operator specific ── */
+.tree-node.operator .node-circle {
+    stroke: rgba(245, 158, 11, 0.3);
+}
+
+/* ── Epsilon specific ── */
+.tree-node.epsilon .node-circle {
+    stroke: rgba(107, 114, 128, 0.3);
+}
+
+.tree-node.epsilon .node-label {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .parse-tree-container {
+        padding: 16px;
+    }
+
+    .tree-legend {
+        gap: 10px;
+    }
+
+    .legend-item {
+        font-size: 0.68rem;
+    }
+}

@@ -1,0 +1,156 @@
+/* ============================================================
+   STEP LOG COMPONENT STYLES
+   ============================================================ */
+
+.step-log-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    animation: fadeInUp 0.5s ease 0.2s both;
+    box-shadow: var(--shadow-md);
+}
+
+.step-counter {
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: rgba(99, 102, 241, 0.08);
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+}
+
+.step-log-scroll {
+    max-height: 420px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* ── Individual Step ── */
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    animation: slideInLeft 0.3s ease both;
+    min-height: 38px;
+}
+
+.step-item:hover {
+    background: rgba(99, 102, 241, 0.06);
+}
+
+.step-item.active {
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid var(--border-medium);
+    box-shadow: var(--shadow-glow);
+}
+
+.step-item.past {
+    opacity: 0.6;
+}
+
+.step-item.error {
+    background: rgba(244, 63, 94, 0.08);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.step-item.success {
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* ── Depth Indicators ── */
+.step-depth-indicator {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.depth-line {
+    display: inline-block;
+    width: 2px;
+    height: 16px;
+    background: rgba(99, 102, 241, 0.15);
+    border-radius: 1px;
+}
+
+.step-icon {
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+}
+
+.step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+    min-width: 0;
+}
+
+.step-rule {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent-violet);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.step-action {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.step-token {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 2px 8px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.token-label {
+    color: var(--text-muted);
+    font-size: 0.68rem;
+}
+
+.step-number {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    flex-shrink: 0;
+    opacity: 0.5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .step-log-container {
+        padding: 16px;
+    }
+
+    .step-token {
+        display: none;
+    }
+
+    .step-number {
+        display: none;
+    }
+}
